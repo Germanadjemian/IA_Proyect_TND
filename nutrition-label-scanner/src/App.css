@@ -1,0 +1,738 @@
+/* src/App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.app-header p {
+  opacity: 0.9;
+  font-size: 1rem;
+}
+
+.app-content {
+  display: flex;
+  flex: 1;
+  gap: 2rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  min-height: calc(100vh - 120px);
+}
+
+.left-panel, .right-panel {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Camera Capture Styles - Ocupa todo el espacio disponible */
+.camera-capture {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 1.5rem;
+}
+
+.camera-placeholder {
+  text-align: center;
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.camera-active {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.camera-video {
+  width: 100%;
+  max-width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  background: #000;
+  object-fit: cover;
+}
+
+.camera-controls, .photo-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.camera-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  min-width: 140px;
+  max-width: 200px;
+}
+
+.start-camera, .capture-button {
+  background: #667eea;
+  color: white;
+}
+
+.start-camera:hover, .capture-button:hover {
+  background: #5a6fd8;
+  transform: translateY(-2px);
+}
+
+.upload-button {
+  background: #48bb78 !important;
+  color: white;
+}
+
+.upload-button:hover {
+  background: #38a169 !important;
+  transform: translateY(-2px);
+}
+
+.secondary-button {
+  background: #e2e8f0;
+  color: #4a5568;
+}
+
+.secondary-button:hover {
+  background: #cbd5e0;
+}
+
+.camera-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.photo-preview {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.captured-photo {
+  width: 100%;
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  flex: 1;
+}
+
+/* Estilos para la opción de subir archivos */
+.upload-option {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  width: 100%;
+}
+
+.upload-divider {
+  margin-bottom: 1.5rem;
+  position: relative;
+  text-align: center;
+}
+
+.upload-divider span {
+  background: white;
+  padding: 0 1rem;
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.upload-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e2e8f0;
+  z-index: -1;
+}
+
+.upload-info {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.photo-preview h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #2d3748;
+  font-size: 1.25rem;
+}
+
+/* Nutrition Results Styles */
+.nutrition-results {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.nutrition-results.placeholder {
+  text-align: center;
+  color: #666;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nutrition-results.loading {
+  text-align: center;
+  padding: 3rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-spinner {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.nutrition-results.error {
+  color: #e53e3e;
+  text-align: center;
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nutrition-summary, .nutrition-details, .health-insights, .warnings {
+  margin-bottom: 2rem;
+}
+
+.nutrition-results h3 {
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.nutrition-results h4 {
+  color: #4a5568;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.nutrients-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.nutrient-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: #f7fafc;
+  border-radius: 6px;
+  border-left: 4px solid #667eea;
+}
+
+.nutrient-name {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.nutrient-value {
+  color: #4a5568;
+}
+
+.nutrient-dv {
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.health-insights ul, .warnings ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.health-insights li, .warnings li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.health-insights li:before {
+  content: "✓ ";
+  color: #48bb78;
+  font-weight: bold;
+}
+
+.warnings li:before {
+  content: "⚠ ";
+  color: #ed8936;
+  font-weight: bold;
+}
+
+.tips {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.tips h4 {
+  color: #4a5568;
+  margin-bottom: 1rem;
+}
+
+.tips ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.tips li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.tips li:before {
+  content: "💡";
+  position: absolute;
+  left: 0;
+}
+
+.camera-error {
+  text-align: center;
+  color: #e53e3e;
+  padding: 1rem;
+  background: #fed7d7;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.error-solutions {
+  text-align: left;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: white;
+  border-radius: 6px;
+}
+
+.error-solutions h4 {
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.error-solutions ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.error-solutions li {
+  padding: 0.25rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.error-solutions li:before {
+  content: "•";
+  color: #667eea;
+  position: absolute;
+  left: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-content {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .left-panel, .right-panel {
+    padding: 1.5rem;
+    min-height: auto;
+  }
+  
+  .app-header {
+    padding: 1rem;
+  }
+  
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .camera-controls {
+    flex-direction: column;
+  }
+  
+  .camera-button {
+    max-width: 100%;
+  }
+  
+  .camera-video {
+    height: 250px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .app-content {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+/* Asegurar que los contenedores ocupen todo el espacio disponible */
+.app-content > * {
+  min-width: 0; /* Permite que los flex items se encojan */
+}
+
+.left-panel {
+  min-width: 400px;
+}
+
+.right-panel {
+  min-width: 400px;
+}
+
+/* Agrega esto al final de tu CSS para un ajuste más preciso */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.start-camera-button {
+  padding: 15px 40px !important;
+  font-size: 1.1rem !important;
+  background: #667eea !important;
+  color: white !important;
+  border-radius: 10px !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3) !important;
+  min-width: 200px !important;
+}
+
+.start-camera-button:hover {
+  background: #5a6fd8 !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4) !important;
+}
+
+.start-camera-button:active {
+  transform: translateY(-1px) !important;
+}
+
+/* Image Upload Styles */
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 1.5rem;
+}
+
+.upload-placeholder {
+  text-align: center;
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.upload-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.upload-placeholder h3 {
+  color: #2d3748;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.upload-placeholder p {
+  color: #718096;
+  font-size: 1.1rem;
+  max-width: 400px;
+}
+
+.upload-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 200px;
+}
+
+.primary-button {
+  background: #667eea;
+  color: white;
+}
+
+.primary-button:hover {
+  background: #5a6fd8;
+  transform: translateY(-2px);
+}
+
+.secondary-button {
+  background: #e2e8f0;
+  color: #4a5568;
+}
+
+.secondary-button:hover {
+  background: #cbd5e0;
+}
+
+.upload-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.upload-info {
+  background: #f7fafc;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 300px;
+}
+
+.upload-info p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.upload-tips {
+  text-align: left;
+  max-width: 400px;
+  margin-top: 1rem;
+}
+
+.upload-tips h4 {
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+}
+
+.upload-tips ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.upload-tips li {
+  padding: 0.25rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #718096;
+}
+
+.upload-tips li:before {
+  content: "•";
+  color: #667eea;
+  position: absolute;
+  left: 0.5rem;
+  font-weight: bold;
+}
+
+.upload-error {
+  background: #fed7d7;
+  color: #c53030;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.image-preview {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.image-preview h3 {
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.preview-image {
+  width: 100%;
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+}
+
+.preview-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .upload-placeholder {
+    padding: 1rem;
+  }
+  
+  .upload-icon {
+    font-size: 3rem;
+  }
+  
+  .upload-placeholder h3 {
+    font-size: 1.3rem;
+  }
+  
+  .preview-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .upload-button {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Agrega esto a tu App.css */
+.nutrition-results {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.results-content {
+  flex: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 200px); /* Ajusta según la altura de tu header */
+  padding-right: 8px;
+}
+
+/* Scroll personalizado */
+.results-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.results-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.results-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.results-content::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Asegurar que los elementos internos no se desborden */
+.nutrition-summary,
+.raw-text,
+.nutrition-details,
+.health-insights,
+.warnings {
+  margin-bottom: 1.5rem;
+}
+
+.raw-text-content {
+  max-height: 200px;
+  overflow-y: auto;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.raw-text-content pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Estados de carga y error también con scroll */
+.nutrition-results.loading,
+.nutrition-results.error,
+.nutrition-results.placeholder {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
